@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "The Glorious Life & Lens | Majd Mubaidin",
   description: "Glorious food experiences and creative visuals from Amman, Jordan. Created by Majd Mubaidin & The Glorious Team.",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  icons: {
+    icon: "/glorylogo.PNG",
+  },
 };
 
 export default function RootLayout({
