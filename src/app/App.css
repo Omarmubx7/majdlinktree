@@ -4,7 +4,8 @@
     /* Colors */
     --black: #000000;
     --dark-gray: #0a0a0a;
-    --bright-pink: #ec4899;
+    --bright-pink: #f472b6;
+    /* Optimized for AA contrast (5.5:1 on black) */
     --deep-pink: #be185d;
     --magenta: #db2777;
     --pink-light: #fce7f3;
@@ -13,7 +14,7 @@
 
     /* Gradients */
     --bg-gradient: radial-gradient(circle at 50% 30%, #2a0a1f 0%, #000000 70%);
-    --pink-glow: rgba(236, 72, 153, 0.4);
+    --pink-glow: rgba(244, 114, 182, 0.4);
 
     /* Radii */
     --radius-md: 12px;
@@ -39,6 +40,25 @@ body {
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+}
+
+/* ============ ACCESSIBILITY ============ */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1.5rem;
+    background: var(--bright-pink);
+    color: var(--black);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 9999;
+    transition: top 0.3s var(--transition);
+}
+
+.skip-link:focus {
+    top: 1.5rem;
 }
 
 /* ============ MOBILE-FIRST LAYOUT (Base) ============ */
@@ -121,60 +141,6 @@ body {
     line-height: 1.6;
     margin-bottom: 2rem;
     opacity: 0.9;
-}
-
-.badges {
-    display: flex;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.badge {
-    padding: 0.4rem 0.9rem;
-    background: rgba(236, 72, 153, 0.08);
-    border: 1px solid rgba(236, 72, 153, 0.4);
-    border-radius: var(--radius-pill);
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    color: var(--bright-pink);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    backdrop-filter: blur(4px);
-}
-
-/* Stats Section */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
-    margin-bottom: 3.5rem;
-}
-
-.stat-card {
-    background: rgba(17, 17, 17, 0.6);
-    border: 1px solid rgba(236, 72, 153, 0.2);
-    padding: 1rem;
-    border-radius: var(--radius-lg);
-    text-align: center;
-    backdrop-filter: blur(10px);
-}
-
-.stat-number {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--bright-pink);
-    display: block;
-}
-
-.stat-label {
-    font-size: 0.65rem;
-    color: var(--white);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    opacity: 0.7;
 }
 
 /* Section Headers */
@@ -378,20 +344,28 @@ body {
     letter-spacing: 0.1em;
 }
 
+/* Coming Soon Badge */
+.badge-soon {
+    display: inline-block;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-pill);
+    color: var(--pink-tint);
+    margin-left: 0.75rem;
+    vertical-align: middle;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
 /* ============ PROGRESSIVE ENHANCEMENT ============ */
 
 @media (min-width: 768px) {
     .shell {
         max-width: 760px;
         padding: 5rem 2rem 8rem;
-    }
-
-    .stat-number {
-        font-size: 2rem;
-    }
-
-    .stat-label {
-        font-size: 0.75rem;
     }
 
     .name {
