@@ -1,26 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
 import React from "react";
 
 interface SectionProps {
     title: string;
     children: React.ReactNode;
-    iconBlob?: boolean;
+    subtitle?: string;
 }
 
-export const Section: React.FC<SectionProps> = ({ title, children, iconBlob = true }) => {
+export const Section: React.FC<SectionProps> = ({ title, children, subtitle }) => {
     return (
-        <div className="w-full max-w-sm space-y-6 pt-8">
-            <div className="relative inline-block ml-2">
-                {iconBlob && (
-                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-gold/10 rounded-full blur-xl" />
-                )}
-                <h2 className="text-xl font-bold text-gold tracking-wide uppercase">
+        <div className="w-full px-6 space-y-4 pt-4">
+            <div className="space-y-1">
+                <h2 className="text-[12px] uppercase tracking-[0.15em] font-semibold text-espresso/40">
                     {title}
                 </h2>
+                {subtitle && (
+                    <p className="text-[11px] text-espresso/50 leading-tight">
+                        {subtitle}
+                    </p>
+                )}
             </div>
-            <div className="space-y-4">
+            <div className="flex flex-col gap-3">
                 {children}
             </div>
         </div>

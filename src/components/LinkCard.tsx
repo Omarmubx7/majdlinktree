@@ -9,7 +9,7 @@ interface LinkCardProps {
     description?: string;
     href: string;
     icon?: LucideIcon;
-    variant?: "primary" | "secondary";
+    variant?: "primary" | "secondary" | "outline";
 }
 
 export const LinkCard: React.FC<LinkCardProps> = ({
@@ -19,30 +19,32 @@ export const LinkCard: React.FC<LinkCardProps> = ({
     icon: Icon,
     variant = "secondary",
 }) => {
+    const isPrimary = variant === "primary";
+    const isOutline = variant === "outline";
+
     return (
         <motion.a
             href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            target={href.startsWith("http") ? "_blank" : "_self"}
+            rel={href.startsWith("http") ? "noopener noreferrer" : ""}
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.99 }}
             className={`
-        w-full p-4 rounded-2xl flex items-center gap-4 transition-all duration-300
-        ${variant === "primary"
-                    ? "bg-gold-gradient text-charcoal font-bold shadow-lg shimmer-btn shadow-gold/20"
-                    : "gold-card text-cream"
+        w-full p-4 rounded-xl flex items-center justify-center gap-3 transition-all duration-200 text-center
+        ${isPrimary
+                    ? "bg-sage text-white font-medium shadow-sm hover:bg-sage-dark"
+                    : isOutline
+                        ? "bg-transparent border border-espresso/20 text-espresso hover:border-espresso/40"
+                        : "bg-white border border-espresso/10 text-espresso shadow-sm hover:border-espresso/20 hover:shadow-md"
                 }
       `}
         >
-            {Icon && (
-                <div className={`p-2 rounded-xl ${variant === "primary" ? "bg-charcoal/10" : "bg-gold/10 text-gold"}`}>
-                    <Icon size={24} />
-                </div>
-            )}
-            <div className="flex flex-col text-left flex-1">
-                <span className="text-lg leading-tight">{title}</span>
+            <div className="flex flex-col items-center">
+                <span className="text-[17px] font-medium tracking-tight">
+                    {title}
+                </span>
                 {description && (
-                    <span className={`text-sm opacity-70 mt-0.5 ${variant === "primary" ? "text-charcoal/80" : "text-cream/70"}`}>
+                    <span className={`text-[12px] mt-0.5 ${isPrimary ? "text-white/80" : "text-espresso/60"}`}>
                         {description}
                     </span>
                 )}

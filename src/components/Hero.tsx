@@ -1,64 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { LinkCard } from "./LinkCard";
-import { Instagram } from "lucide-react";
 
 export const Hero = () => {
     return (
-        <div className="flex flex-col items-center text-center space-y-8 py-12 px-6">
+        <div className="flex flex-col items-center text-center space-y-6 pt-12 pb-8 px-6">
+            {/* Profile Photo / Logo Circle */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="w-24 h-24 rounded-full bg-sand border-2 border-white shadow-sm flex items-center justify-center overflow-hidden"
+            >
+                {/* 
+                  Placeholder for profile photo. 
+                  In a real app, this would be an <Image /> component. 
+                */}
+                <span className="text-espresso/20 font-bold text-xs uppercase tracking-widest">Logo</span>
+            </motion.div>
+
             {/* Hero Text */}
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="space-y-4"
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="space-y-2"
             >
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-cream">
+                <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-espresso">
                     The Glorious Life & Lens
                 </h1>
-                <p className="text-xl md:text-2xl text-gold-light italic">
-                    Food. Stories. Cinematic moments.
+                <p className="text-[17px] text-espresso/80 leading-snug max-w-[280px] mx-auto">
+                    Food stories, cinematic visuals, and cozy spots from Amman.
                 </p>
-                <p className="text-sm md:text-base opacity-70">
-                    Created by Majd Mubaidin & The Glorious Team.
-                </p>
-                <p className="max-w-md mx-auto text-cream/80 pt-2">
-                    Glorious food experiences and creative visuals from Amman, Jordan.
+                <p className="text-[12px] uppercase tracking-[0.2em] text-espresso/40 font-medium">
+                    By Majd Mubaidin
                 </p>
             </motion.div>
-
-            {/* Social Badges */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="flex flex-wrap justify-center gap-3"
-            >
-                <div className="bg-charcoal-light/80 backdrop-blur px-4 py-1.5 rounded-full border border-gold/20 text-xs md:text-sm text-gold-light flex items-center gap-2">
-                    <Instagram size={14} />
-                    Food Blogger – @gloriouslife.jo
-                </div>
-                <div className="bg-charcoal-light/80 backdrop-blur px-4 py-1.5 rounded-full border border-gold/20 text-xs md:text-sm text-gold-light flex items-center gap-2">
-                    <Instagram size={14} />
-                    Videography & Content – @thegloriousinc
-                </div>
-            </motion.div>
-
-            {/* Hero Buttons */}
-            <div className="w-full max-w-sm space-y-4">
-                <LinkCard
-                    variant="primary"
-                    title="Book A Glorious Shoot"
-                    href="#" // Placeholder for now
-                    description="Click to see my booking form"
-                />
-                <LinkCard
-                    title="Glorious Food Instagram"
-                    href="https://www.instagram.com/gloriouslife.jo"
-                    icon={Instagram}
-                />
-            </div>
         </div>
     );
 };
