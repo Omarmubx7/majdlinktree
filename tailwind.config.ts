@@ -9,29 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: {
-          DEFAULT: "#FDFCF0", // Warm off-white
-          dark: "#F5F3E0",
-        },
-        espresso: {
-          DEFAULT: "#2C1E14", // Deep brown
-          light: "#3D2B1D",
-        },
-        sage: {
-          DEFAULT: "#4A6741", // Sophisticated green
-          dark: "#3D5535",
-        },
-        sand: {
-          DEFAULT: "#E8E2D2",
-        }
+        background: "#050505",
+        foreground: "#e5e5e5",
+        muted: "#a3a3a3",
+        border: "#27272a",
+        accent: "#ffffff",
       },
       borderRadius: {
-        '2xl': '1rem',
-        '3xl': '1.5rem',
+        'full': '9999px',
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
       },
+      letterSpacing: {
+        'widest': '0.25em',
+        'loose': '0.15em',
+      }
     },
   },
   plugins: [],

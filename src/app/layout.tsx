@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "./App.css";
 
 export const metadata: Metadata = {
   title: "The Glorious Life & Lens | Majd Mubaidin",
